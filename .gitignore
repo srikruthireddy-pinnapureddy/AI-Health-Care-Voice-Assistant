@@ -1,0 +1,33 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+
+# Environment files
+.env
+.env.*
+project/.env
+
+# Editor and OS files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Database and data files
+*.db
+*.sqlite3
+clinic.db
+appointments_data.xlsx
+
+# Node dependencies
+node_modules/
+
+# Logs
+*.log
+
+# Virtual environments
+venv/
+env/
+.venv/

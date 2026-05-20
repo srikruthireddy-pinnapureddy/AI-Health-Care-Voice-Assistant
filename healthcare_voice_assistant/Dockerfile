@@ -1,0 +1,19 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY healthcare_voice_assistant/requirements.txt ./requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY healthcare_voice_assistant ./healthcare_voice_assistant
+
+ENV PYTHONUNBUFFERED=1
+ENV PORT=5000
+
+EXPOSE 5000
+
+CMD ["python", "-m", "healthcare_voice_assistant.app"]

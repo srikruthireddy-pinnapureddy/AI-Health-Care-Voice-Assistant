@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+websockets
+redis
+python-dotenv
+numpy
+torch
+omnivoice
+httpx

@@ -1,0 +1,29 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY voice_gateway/requirements.txt ./voice_gateway/requirements.txt
+COPY healthcare_voice_assistant/requirements.txt ./healthcare_voice_assistant/requirements.txt
+RUN pip install --no-cache-dir -r voice_gateway/requirements.txt -r healthcare_voice_assistant/requirements.txt
+
+COPY voice_gateway ./voice_gateway
+COPY healthcare_voice_assistant ./healthcare_voice_assistant
+COPY session ./session
+COPY speech ./speech
+COPY tts ./tts
+COPY interruption ./interruption
+COPY monitoring ./monitoring
+COPY metrics ./metrics
+
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/app
+ENV PORT=8001
+
+WORKDIR /app/voice_gateway
+EXPOSE 8001
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001"]

@@ -1,0 +1,2 @@
+-r healthcare_voice_assistant/requirements.txt
+-r voice_gateway/requirements.txt

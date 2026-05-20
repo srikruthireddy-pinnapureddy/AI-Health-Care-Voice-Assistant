@@ -1,0 +1,17 @@
+flask
+flask-cors
+faster-whisper
+omnivoice
+soundfile
+ffmpeg-python
+pydub
+silero-vad
+redis
+flask-limiter
+numpy
+scipy
+torch
+deep-translator
+pandas
+openpyxl
+pytest

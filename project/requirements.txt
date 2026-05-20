@@ -1,0 +1,5 @@
+livekit-agents
+livekit
+python-dotenv
+redis
+deep-translator
